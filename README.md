@@ -155,3 +155,15 @@ sheet = client.open("gapv2 tasks").worksheet("Log")
 You can change these to match your actual sheet names.
 
 ---
+
+### 5. Adjust uplink time check in `device_monitor.py`
+
+```python
+status = "ONLINE" if diff < timedelta(hours=1) else "OFFLINE"
+```
+
+If the device has sent an uplink within the **last 1 hour**, the system will assume the device is **ONLINE**.
+
+Otherwise, it will be considered **OFFLINE**.
+
+---
